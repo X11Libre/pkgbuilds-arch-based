@@ -1,0 +1,39 @@
+# Maintainer: artist for Xlibre
+
+pkgname=xlibre-xf86-input-void
+_pkgname=xf86-input-void
+pkgver=1.4.2.1
+pkgrel=1
+pkgdesc="XLibre fork of X.Org void input driver"
+arch=(x86_64)
+license=('custom')
+url="https://github.com/X11Libre"
+depends=('glibc')
+makedepends=('xlibre-xserver' 'xlibre-xserver-common' 'xlibre-xserver-devel' 'X-ABI-XINPUT_VERSION=26.0'
+  'xorgproto' 'autoconf' 'automake' 'binutils' 'fakeroot' 'findutils' 
+  'gawk' 'gcc' 'gettext' 'gzip' 'libtool' 'm4' 'make' 'patch' 'pkgconf')
+conflicts=(${_pkgname} 'X-ABI-XINPUT_VERSION<26' 'X-ABI-XINPUT_VERSION>=27')
+provides=(${_pkgname})
+source=("${url}/${_pkgname}/archive/refs/tags/${pkgname}-${pkgver}.tar.gz")
+groups=('xlibre-drivers')
+options=('!debug')
+
+build() {
+  CFLAGS=" -march=x86-64 -mtune=generic -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -Wformat -Werror=format-security"
+  CFLAGS+=" -fstack-clash-protection -fcf-protection -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -flto=auto"
+  LDFLAGS=" -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,-z,pack-relative-relocs -flto=auto"
+
+  cd ${_pkgname}-${pkgname}-${pkgver}
+  ./autogen.sh
+  ./configure --prefix=/usr
+  make
+}
+
+package() {
+  cd ${_pkgname}-${pkgname}-${pkgver}
+  make DESTDIR="${pkgdir}" install
+  install -Dm644 "${srcdir}"/${_pkgname}-${pkgname}-${pkgver}/COPYING "${pkgdir}"/usr/share/licenses/${pkgname}/LICENSE
+}
+
+sha256sums=('8ce54cc9e4bcaa4973742081cc4de9615bc9c8fd534f4e31b8efc92dc15adc2e')
+
