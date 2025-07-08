@@ -28,11 +28,11 @@ The procedure is the same for all packages:
 Conditions related to the order of building xlibre packages
 -----------------------------------------------------------
 
-Note that an xlibre-server update from 25.0.0.x to 26.0.0.x is considered a major version updade; an update from 25.0.0.3 to 25.0.0.4 is not as this just a minor version update, also known as hotfix.
+Note that an xlibre-xserver update from 25.0.0.x to 26.0.0.x is considered a major version updade; an update from 25.0.0.3 to 25.0.0.4 is not as this just a minor version update, also known as hotfix.
 
 * A major update will increase the Module ABI versions in the Xlibre packages.
 * Before a major updade of xlibre-xserver - and only then - a new version of the xlibre-xf86-input-libinput PKGBUILD file must be downloaded and this package built; this to acommodate for the increased ABI versions while building the xlibre-xserver and xlibre-xf86 packages.
-* The major update is done by building the vew version of the xlibre-xserver base package which builds the 6 xlibre-xserver packages.
+* The major update is done by building the new version of the xlibre-xserver base package which builds the 6 xlibre-xserver packages.
 * After a major updade of xlibre-xserver, all xlibre-xf86 driver packages need to be rebuilt.
 * Once an Xlibre package has been built it should be used to replace its xorg counterpart, if installed.
 
@@ -44,7 +44,7 @@ Note: when asked to remove conflicting xorg and xf86 packages when building, ans
 When conflicting xf86 packages cannot be removed, use `pacman -Rdd` to force remove these.\
 Keep a note of all removed xf86 packages and install the corresponding xlibre-xf86 ones during step 4!
 
-#### 1. Build package stub-xlibre-xf86-input-libinput - this in only required after a major version update as explained above.
+#### 1. Build package xlibre-xf86-input-libinput v1.5.0.0 - this is only required after a major version update as explained above.
     Note this is a placeholder and will be replaced later in this procedure with a newer version.
 - change directory into xlibre-xf86-input-libinput
 - make sure xorg-devel is installed and also other dependencies from the PKGBUILD file
@@ -54,8 +54,8 @@ Keep a note of all removed xf86 packages and install the corresponding xlibre-xf
 
 #### 2. Build the xlibre-xserver packages
 - change directory into xlibre-xserver
-- make sure all dependencies from the PKGBUILD file like eg. xtrans, libxaw, xorg-font-util and meson
-- remove conflicting pacakge that pacman cannot delete, eg.:\
+- make sure to install all dependencies from the PKGBUILD file like eg. xtrans, libxaw, xorg-font-util and meson
+- remove conflicting packages that pacman cannot delete, eg.:\
    `sudo pacman -Rdd xf86-video-vmware xf86-input-vmmouse xf86-input-elographics xf86-input-evdev xf86-input-void xf86-input-wacom`
 - build the package using eg. `makepkg`
 - install these packages:\
@@ -90,7 +90,7 @@ Perform checks
 Closed source drivers
 ---------------------
 
-Closed source drivers might not have an updated ABI version to match that of the updated xlibre-server. This can be overcome by creating a file named eg. /etc/X11/xorg.conf.d/xlibre.conf containing:
+Closed source drivers might not have an updated ABI version to match that of the updated xlibre-xserver. This can be overcome by creating a file named eg. /etc/X11/xorg.conf.d/xlibre.conf containing:
 
 `Section "ServerFlags"`\
 `        Option "IgnoreABI" "true"`\
