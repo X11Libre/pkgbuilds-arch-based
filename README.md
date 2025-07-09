@@ -2,14 +2,17 @@
 Arch Derivative PKGBUILDS for Xlibre
 ====================================
 
-This repository provides PKBUILD files for building Xlibre packages on Arch Linux derivative distributions and Arch Linux itself.
-The procedure to do this is documented here and meant for package users and maintainters.
+This repository provides PKBUILD files for building Xlibre packages on Arch Linux derivative distributions and Arch Linux itself.\
+The procedure to do this is documented here and meant for package users and maintainters.\
+Artix Linux users should not use this procedure but use the packages provided by their distribution.
 
 
 Important notices
 -----------------
 
 * Do not use this procedure on a daily driver system and make sure to able to restore from backup or snapshot.
+* In the Xorg repository the 'TearFree' option was been enabled by default quite some time ago, but this code was never released.\
+Xlibre did release the code, so it does have the 'TearFree' option enabled by default.
 * The scope of the Xlibre project is only to replace the xorg-server and xf86 driver packages, not other xorg packages like eg. xorg-xwayland.
 
 
@@ -85,6 +88,19 @@ Perform checks
 - check that all required xlibre packages are installed:\
    `pacman -Q | grep 'xlibre-'`
 - make SURE xlibre-xf86-input-libinput-1.5.0.1 or higher is installed!
+
+
+Xlibre binary packages repository
+---------------------------------
+
+These are available in a separate xlibre repository which can be enabled with the following actions:
+
+* Run commands:\
+  `sudo curl -sS http://152.70.56.125/0x73580DE2EDDFA6D6.gpg | gpg --import -`\
+  `sudo pacman-key --lsign-key 73580DE2EDDFA6D6`
+* Add the xlibre repository by adding this section to file /etc/pacman.conf:\
+  `[xlibre]`\
+  `Server = http://xlibre-packages.duckdns.org/arch-based/`
 
 
 Closed source drivers
