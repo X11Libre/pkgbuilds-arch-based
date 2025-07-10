@@ -100,7 +100,8 @@ These are available in a separate xlibre repository which can be enabled with th
   `sudo pacman-key --lsign-key 73580DE2EDDFA6D6`
 * Add the xlibre repository by adding this section to file /etc/pacman.conf:\
   `[xlibre]`\
-  `Server = https://raw.githubusercontent.com/artist4artix/packages-arch-based/refs/heads/main`
+  `Server = https://raw.githubusercontent.com/artist4artix/packages-arch-based/refs/heads/main`\
+  `# List of available packages: https://github.com/X11Libre/pkgbuilds-arch-based`
 
 
 Closed source drivers
