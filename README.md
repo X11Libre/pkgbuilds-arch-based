@@ -101,7 +101,7 @@ These are available in a separate xlibre repository which can be enabled with th
 * Add the xlibre repository by adding this section to file /etc/pacman.conf:\
   `[xlibre]`\
   `Server = https://raw.githubusercontent.com/artist4artix/packages-arch-based/refs/heads/main`\
-  `# List of available packages: https://github.com/X11Libre/pkgbuilds-arch-based`
+  `# List of available packages: https://github.com/artist4artix/packages-arch-based`
 
 
 Closed source drivers
@@ -129,6 +129,12 @@ Available packages
 
 | Package | Git repository | Release tag |
 | --- | --- | --- |
+| xlibre-xserver         | https://github.com/X11Libre/xlibre-xserver         | xlibre-xserver-25.0.0.5               |
+| xlibre-xserver-common  | https://github.com/X11Libre/xlibre-xserver         | xlibre-xserver-common-25.0.0.5        |
+| xlibre-xserver-devel   | https://github.com/X11Libre/xlibre-xserver         | xlibre-xserver-devel-25.0.0.5         |
+| xlibre-xserver-xephyr  | https://github.com/X11Libre/xlibre-xserver         | xlibre-xserver-xephyr-25.0.0.5        |
+| xlibre-xserver-xnest   | https://github.com/X11Libre/xlibre-xserver         | xlibre-xserver-xnest-25.0.0.5         |
+| xlibre-xserver-xvfb    | https://github.com/X11Libre/xlibre-xserver         | xlibre-xserver-xvfb-25.0.0.5          |
 | xf86-input-elographics | https://github.com/X11Libre/xf86-input-elographics | xlibre-xf86-input-elographics-1.4.4.1 |
 | xf86-input-evdev       | https://github.com/X11Libre/xf86-input-evdev       | xlibre-xf86-input-evdev-2.11.0.1      |
 | xf86-input-void        | https://github.com/X11Libre/xf86-input-void        | xlibre-xf86-input-void-1.4.2.1        |
