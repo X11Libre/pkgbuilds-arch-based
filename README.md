@@ -50,7 +50,7 @@ Keep a note of all removed xf86 packages and install the corresponding xlibre-xf
 #### 1. Build package xlibre-xf86-input-libinput v1.5.0.0 - this is only required after a major version update as explained above.
     Note this is a placeholder and will be replaced later in this procedure with a newer version.
 - change directory into xlibre-xf86-input-libinput
-- make sure xorg-devel is installed and also other dependencies from the PKGBUILD file
+- make sure xorg-server-devel is installed and also other dependencies from the PKGBUILD file
 - build the package using eg. `makepkg`
 - install the package:\
    `sudo pacman -U xlibre-xf86-input-libinput-1.5.0.0-1-x86_64.pkg.tar.zst`
