@@ -186,7 +186,7 @@ package_xlibre-xserver-devel() {
   # make sure there are no files left to install
   find fakeinstall -depth -print0 | xargs -0 rmdir
 }
-sha256sums=('3910f5a5f6a0788788885d0fa016ada28182c3fc45ba91df83cffdd2b09dea32'
+sha256sums=('0d599978d2bc911d199d5f18755297ec2d216a41f91c746b74a1caaf57b5ebd3'
             '27ce50f4432e5549e662db857118761fa9cd74c6900aac52c4db768c956838db'
             '2460adccd3362fefd4cdc5f1c70f332d7b578091fb9167bf88b5f91265bbd776')
 
