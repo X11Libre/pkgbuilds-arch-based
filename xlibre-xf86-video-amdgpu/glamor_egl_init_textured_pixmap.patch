@@ -1,0 +1,27 @@
+From 857f5a7790dba470c2fd3c0456555e718d6a378f Mon Sep 17 00:00:00 2001
+From: Joseph Crowell <joseph.w.crowell@gmail.com>
+Date: Sun, 20 Jul 2025 19:37:48 +1000
+Subject: [PATCH] fix: undefined symbol: glamor_egl_init_textured_pixmap fixes
+ #4
+
+The function just returns true now so there is no point to this code which fails to find the function symbol any way.
+---
+ src/amdgpu_glamor.c | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/src/amdgpu_glamor.c b/src/amdgpu_glamor.c
+index 98e36f9..20ce812 100644
+--- a/src/amdgpu_glamor.c
++++ b/src/amdgpu_glamor.c
+@@ -453,11 +453,6 @@ Bool amdgpu_glamor_init(ScreenPtr screen)
+ 		return FALSE;
+ 	}
+ 
+-	if (!glamor_egl_init_textured_pixmap(screen)) {
+-		xf86DrvMsg(scrn->scrnIndex, X_ERROR,
+-			   "Failed to initialize textured pixmap of screen for glamor.\n");
+-		return FALSE;
+-	}
+ 	if (!dixRegisterPrivateKey(&amdgpu_pixmap_index, PRIVATE_PIXMAP, 0))
+ 		return FALSE;
+ 
