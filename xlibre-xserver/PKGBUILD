@@ -3,8 +3,8 @@
 pkgbase=xlibre-xserver
 pkgname=($pkgbase $pkgbase-xephyr $pkgbase-xvfb $pkgbase-xnest $pkgbase-common $pkgbase-devel)
 pkgver=25.0.0.5
-pkgrel=1
-arch=('x86_64')
+pkgrel=1.2
+arch=('x86_64' 'aarch64')
 license=('LicenseRef-Adobe-Display-PostScript'
          'BSD-3-Clause' 
          'LicenseRef-DEC-3-Clause' 
@@ -36,8 +36,19 @@ source=("https://codeload.github.com/X11Libre/xserver/tar.gz/refs/tags/xlibre-xs
         xvfb-run.1)
 
 build() {
-  CFLAGS=" -march=x86-64 -mtune=generic -O2 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -Wformat -Werror=format-security"
-  CFLAGS+=" -fstack-clash-protection -fcf-protection -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -flto=auto"
+  case "$CARCH" in
+    "x86_64")
+      CFLAGS+=""
+      ;;
+    "aarch64")
+      CFLAGS=" -march=aarch64"
+      ;;
+    *)
+      CFLAGS=" -march=native"
+      ;;
+  esac
+  CFLAGS+=" -mtune=generic -O2 -pipe -Wp,-D_FORTIFY_SOURCE=3 -Wformat -Werror=format-security -fexceptions"
+  CFLAGS+=" -fstack-clash-protection -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -flto=auto"
   LDFLAGS=" -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,-z,pack-relative-relocs -flto=auto"
 
   meson xserver-${pkgbase}-${pkgver} build \
