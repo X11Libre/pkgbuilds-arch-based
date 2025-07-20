@@ -4,7 +4,7 @@ pkgname=xlibre-xf86-video-ati
 _pkgname=xf86-video-ati
 _pkgname2=xfree-xf86-video-ati
 pkgver=22.0.0.1
-pkgrel=1
+pkgrel=2
 pkgdesc="XLibre fork of X.Org ati video driver"
 arch=('x86_64' 'aarch64')
 url="https://github.com/X11Libre"
@@ -16,8 +16,14 @@ makedepends=('xlibre-xserver' 'xlibre-xserver-common' 'xlibre-xserver-devel' 'X-
 conflicts=(${_pkgname} 'X-ABI-VIDEODRV_VERSION<28' 'X-ABI-VIDEODRV_VERSION>=29')
 provides=(${_pkgname})
 groups=('xlibre-drivers')
-source=("${url}/${_pkgname}/archive/refs/tags/${_pkgname2}-${pkgver}.tar.gz")
+source=("${url}/${_pkgname}/archive/refs/tags/${_pkgname2}-${pkgver}.tar.gz"
+        glamor_egl_init_textured_pixmap.patch)
 options=('!debug')
+
+prepare() {
+  cd ${_pkgname}-${_pkgname2}-${pkgver}  
+  patch -Np1 -i ${srcdir}/glamor_egl_init_textured_pixmap.patch
+}
 
 build() {
   case "$CARCH" in
@@ -53,5 +59,6 @@ package() {
   install -Dm644 "${srcdir}"/${_pkgname}-${_pkgname2}-${pkgver}/COPYING "${pkgdir}"/usr/share/licenses/${pkgname}/LICENSE
 }
 
-sha256sums=('e672335e6c3daaa7869ae59724197a7ae2b43c805e6528395f047302862f6541')
+sha256sums=('e672335e6c3daaa7869ae59724197a7ae2b43c805e6528395f047302862f6541'
+            'ed2e1d51a5fc65975f6d932216112ed585124dec805a54dfb027f84ca3668ed2')
 
