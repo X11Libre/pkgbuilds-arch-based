@@ -141,7 +141,7 @@ Available packages
 | xf86-input-synaptics   | https://github.com/X11Libre/xf86-input-synaptics   | xlibre-xf86-input-synaptics-1.10.0.1  |
 | xf86-input-vmmouse     | https://github.com/X11Libre/xf86-input-vmmouse     | xlibre-xf86-input-vmmouse-13.2.0.1    |
 | xf86-input-wacom       | https://github.com/X11Libre/xf86-input-wacom       | xlibre-xf86-input-wacom-1.2.3.1       |
-| xf86-video-amdgpu      | https://github.com/X11Libre/xf86-video-amdgpu      | xlibre-xf86-video-amdgpu-23.0.0.1     |
+| xf86-video-amdgpu      | https://github.com/X11Libre/xf86-video-amdgpu      | xlibre-xf86-video-amdgpu-23.0.0.2     |
 | xf86-video-ati         | https://github.com/X11Libre/xf86-video-ati         | xfree-xf86-video-ati-22.0.0.1         |
 | xf86-video-dummy       | https://github.com/X11Libre/xf86-video-dummy       | xlibre-xf86-video-dummy-0.4.1.1       |
 | xf86-video-fbdev       | https://github.com/X11Libre/xf86-video-fbdev       | xlibre-xf86-video-fbdev-0.5.1.1       |
