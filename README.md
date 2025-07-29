@@ -2,6 +2,8 @@
 Arch Derivative PKGBUILDS for Xlibre
 ====================================
 
+Note: these official Xlibre PKGBUILD files are also being made available in the Arch User Repostory (AUR) by the maintainer named 'xlibre'.
+
 This repository provides PKBUILD files for building Xlibre packages on Arch Linux derivative distributions and Arch Linux itself.\
 The procedure to do this is documented here and meant for package users and maintainters.\
 Artix Linux users should not use this procedure but use the packages provided by their distribution.
