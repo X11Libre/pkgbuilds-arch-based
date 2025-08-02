@@ -130,30 +130,30 @@ Available packages
 
 | Package | Git repository | Release tag |
 | --- | --- | --- |
-| xlibre-xserver         | https://github.com/X11Libre/xlibre-xserver         | xlibre-xserver-25.0.0.5               |
-| xlibre-xserver-common  | https://github.com/X11Libre/xlibre-xserver         | xlibre-xserver-common-25.0.0.5        |
-| xlibre-xserver-devel   | https://github.com/X11Libre/xlibre-xserver         | xlibre-xserver-devel-25.0.0.5         |
-| xlibre-xserver-xephyr  | https://github.com/X11Libre/xlibre-xserver         | xlibre-xserver-xephyr-25.0.0.5        |
-| xlibre-xserver-xnest   | https://github.com/X11Libre/xlibre-xserver         | xlibre-xserver-xnest-25.0.0.5         |
-| xlibre-xserver-xvfb    | https://github.com/X11Libre/xlibre-xserver         | xlibre-xserver-xvfb-25.0.0.5          |
-| xf86-input-elographics | https://github.com/X11Libre/xf86-input-elographics | xlibre-xf86-input-elographics-1.4.4.1 |
-| xf86-input-evdev       | https://github.com/X11Libre/xf86-input-evdev       | xlibre-xf86-input-evdev-2.11.0.1      |
-| xf86-input-void        | https://github.com/X11Libre/xf86-input-void        | xlibre-xf86-input-void-1.4.2.1        |
-| xf86-input-synaptics   | https://github.com/X11Libre/xf86-input-synaptics   | xlibre-xf86-input-synaptics-1.10.0.1  |
-| xf86-input-vmmouse     | https://github.com/X11Libre/xf86-input-vmmouse     | xlibre-xf86-input-vmmouse-13.2.0.1    |
-| xf86-input-wacom       | https://github.com/X11Libre/xf86-input-wacom       | xlibre-xf86-input-wacom-1.2.3.1       |
-| xf86-video-amdgpu      | https://github.com/X11Libre/xf86-video-amdgpu      | xlibre-xf86-video-amdgpu-23.0.0.2     |
-| xf86-video-ati         | https://github.com/X11Libre/xf86-video-ati         | xfree-xf86-video-ati-22.0.0.1         |
-| xf86-video-dummy       | https://github.com/X11Libre/xf86-video-dummy       | xlibre-xf86-video-dummy-0.4.1.1       |
-| xf86-video-fbdev       | https://github.com/X11Libre/xf86-video-fbdev       | xlibre-xf86-video-fbdev-0.5.1.1       |
-| xf86-video-intel       | https://github.com/X11Libre/xf86-video-intel       | xlibre-xf86-video-intel-3.0.0.1       |
-| xf86-video-nouveau     | https://github.com/X11Libre/xf86-video-nouveau     | xlibre-xf86-video-nouveau-1.0.18.1    |
-| xf86-video-nv          | https://github.com/X11Libre/xf86-video-nv          | xlibre-xf86-video-nv-2.1.23.1         |
-| xf86-video-qxl         | https://github.com/X11Libre/xf86-video-qxl         | xlibre-xf86-video-qxl-0.1.6.1         |
-| xf86-video-sisusb      | https://github.com/X11Libre/xf86-video-sisusb      | xlibre-xf86-video-sisusb-0.9.7.1      |
-| xf86-video-vesa        | https://github.com/X11Libre/xf86-video-vesa        | xlibre-xf86-video-vesa-2.6.0.1        |
-| xf86-video-vmware      | https://github.com/X11Libre/xf86-video-vmware      | xlibre-xf86-video-vmware-13.4.0.1     |
-| xf86-video-voodoo      | https://github.com/X11Libre/xf86-video-voodoo      | xlibre-xf86-video-voodoo-1.2.6.1      |
+| xlibre-xserver                | https://github.com/X11Libre/xlibre-xserver         | xlibre-xserver-25.0.0.7               |
+| xlibre-xserver-common         | https://github.com/X11Libre/xlibre-xserver         | xlibre-xserver-common-25.0.0.7        |
+| xlibre-xserver-devel          | https://github.com/X11Libre/xlibre-xserver         | xlibre-xserver-devel-25.0.0.7         |
+| xlibre-xserver-xephyr         | https://github.com/X11Libre/xlibre-xserver         | xlibre-xserver-xephyr-25.0.0.7        |
+| xlibre-xserver-xnest          | https://github.com/X11Libre/xlibre-xserver         | xlibre-xserver-xnest-25.0.0.7         |
+| xlibre-xserver-xvfb           | https://github.com/X11Libre/xlibre-xserver         | xlibre-xserver-xvfb-25.0.0.7          |
+| xlibre-xf86-input-elographics | https://github.com/X11Libre/xf86-input-elographics | xlibre-xf86-input-elographics-1.4.4.1 |
+| xlibre-xf86-input-evdev       | https://github.com/X11Libre/xf86-input-evdev       | xlibre-xf86-input-evdev-2.11.0.1      |
+| xlibre-xf86-input-void        | https://github.com/X11Libre/xf86-input-void        | xlibre-xf86-input-void-1.4.2.1        |
+| xlibre-xf86-input-synaptics   | https://github.com/X11Libre/xf86-input-synaptics   | xlibre-xf86-input-synaptics-1.10.0.1  |
+| xlibre-xf86-input-vmmouse     | https://github.com/X11Libre/xf86-input-vmmouse     | xlibre-xf86-input-vmmouse-13.2.0.1    |
+| xlibre-xf86-input-wacom       | https://github.com/X11Libre/xf86-input-wacom       | xlibre-xf86-input-wacom-1.2.3.1       |
+| xlibre-xf86-video-amdgpu      | https://github.com/X11Libre/xf86-video-amdgpu      | xlibre-xf86-video-amdgpu-23.0.0.3     |
+| xlibre-xf86-video-ati         | https://github.com/X11Libre/xf86-video-ati         | xfree-xf86-video-ati-22.0.0.1         |
+| xlibre-xf86-video-dummy       | https://github.com/X11Libre/xf86-video-dummy       | xlibre-xf86-video-dummy-0.4.1.1       |
+| xlibre-xf86-video-fbdev       | https://github.com/X11Libre/xf86-video-fbdev       | xlibre-xf86-video-fbdev-0.5.1.1       |
+| xlibre-xf86-video-intel       | https://github.com/X11Libre/xf86-video-intel       | xlibre-xf86-video-intel-3.0.0.1       |
+| xlibre-xf86-video-nouveau     | https://github.com/X11Libre/xf86-video-nouveau     | xlibre-xf86-video-nouveau-1.0.18.1    |
+| xlibre-xf86-video-nv          | https://github.com/X11Libre/xf86-video-nv          | xlibre-xf86-video-nv-2.1.23.1         |
+| xlibre-xf86-video-qxl         | https://github.com/X11Libre/xf86-video-qxl         | xlibre-xf86-video-qxl-0.1.6.1         |
+| xlibre-xf86-video-sisusb      | https://github.com/X11Libre/xf86-video-sisusb      | xlibre-xf86-video-sisusb-0.9.7.1      |
+| xlibre-xf86-video-vesa        | https://github.com/X11Libre/xf86-video-vesa        | xlibre-xf86-video-vesa-2.6.0.1        |
+| xlibre-xf86-video-vmware      | https://github.com/X11Libre/xf86-video-vmware      | xlibre-xf86-video-vmware-13.4.0.1     |
+| xlibre-xf86-video-voodoo      | https://github.com/X11Libre/xf86-video-voodoo      | xlibre-xf86-video-voodoo-1.2.6.1      |
 
 \
 _artist for Xlibre_
