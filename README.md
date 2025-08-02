@@ -12,7 +12,6 @@ Artix Linux users should not use this procedure but use the packages provided by
 Important notices
 -----------------
 
-* Do not use this procedure on a daily driver system and make sure to able to restore from backup or snapshot.
 * In the Xorg repository the 'TearFree' option was been enabled by default quite some time ago, but this code was never released.\
 Xlibre did release the code, so it does have the 'TearFree' option enabled by default.
 * The scope of the Xlibre project is only to replace the xorg-server and xf86 driver packages, not other xorg packages like eg. xorg-xwayland.
