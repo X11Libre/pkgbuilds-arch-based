@@ -1,0 +1,260 @@
+diff --git a/xlibre-xf86-input-elographics/PKGBUILD b/xlibre-xf86-input-elographics/PKGBUILD
+index 7d54cd9..a1ec13c 100644
+--- a/xlibre-xf86-input-elographics/PKGBUILD
++++ b/xlibre-xf86-input-elographics/PKGBUILD
+@@ -24,7 +24,7 @@ build() {
+       CFLAGS=" -march=x86-64"
+       ;;
+     "aarch64")
+-      CFLAGS=" -march=aarch64"
++      CFLAGS=" -march=armv8-a"
+       ;;
+     *)
+       CFLAGS=" -march=native"
+diff --git a/xlibre-xf86-input-evdev/PKGBUILD b/xlibre-xf86-input-evdev/PKGBUILD
+index e25f743..d8b70e3 100644
+--- a/xlibre-xf86-input-evdev/PKGBUILD
++++ b/xlibre-xf86-input-evdev/PKGBUILD
+@@ -24,7 +24,7 @@ build() {
+       CFLAGS=" -march=x86-64"
+       ;;
+     "aarch64")
+-      CFLAGS=" -march=aarch64"
++      CFLAGS=" -march=armv8-a"
+       ;;
+     *)
+       CFLAGS=" -march=native"
+diff --git a/xlibre-xf86-input-libinput/PKGBUILD b/xlibre-xf86-input-libinput/PKGBUILD
+index 9735d5a..1b6a53b 100644
+--- a/xlibre-xf86-input-libinput/PKGBUILD
++++ b/xlibre-xf86-input-libinput/PKGBUILD
+@@ -26,7 +26,7 @@ build() {
+       CFLAGS=" -march=x86-64"
+       ;;
+     "aarch64")
+-      CFLAGS=" -march=aarch64"
++      CFLAGS=" -march=armv8-a"
+       ;;
+     *)
+       CFLAGS=" -march=native"
+diff --git a/xlibre-xf86-input-libinput/PKGBUILD-1.5.0.1 b/xlibre-xf86-input-libinput/PKGBUILD-1.5.0.1
+index 2f2fab6..5edd892 100644
+--- a/xlibre-xf86-input-libinput/PKGBUILD-1.5.0.1
++++ b/xlibre-xf86-input-libinput/PKGBUILD-1.5.0.1
+@@ -25,7 +25,7 @@ build() {
+       CFLAGS=" -march=x86-64"
+       ;;
+     "aarch64")
+-      CFLAGS=" -march=aarch64"
++      CFLAGS=" -march=armv8-a"
+       ;;
+     *)
+       CFLAGS=" -march=native"
+diff --git a/xlibre-xf86-input-synaptics/PKGBUILD b/xlibre-xf86-input-synaptics/PKGBUILD
+index 66b083c..d750a9b 100644
+--- a/xlibre-xf86-input-synaptics/PKGBUILD
++++ b/xlibre-xf86-input-synaptics/PKGBUILD
+@@ -27,7 +27,7 @@ build() {
+       CFLAGS=" -march=x86-64"
+       ;;
+     "aarch64")
+-      CFLAGS=" -march=aarch64"
++      CFLAGS=" -march=armv8-a"
+       ;;
+     *)
+       CFLAGS=" -march=native"
+diff --git a/xlibre-xf86-input-vmmouse/PKGBUILD b/xlibre-xf86-input-vmmouse/PKGBUILD
+index eb1113a..509e4d2 100644
+--- a/xlibre-xf86-input-vmmouse/PKGBUILD
++++ b/xlibre-xf86-input-vmmouse/PKGBUILD
+@@ -23,7 +23,7 @@ build() {
+       CFLAGS=" -march=x86-64"
+       ;;
+     "aarch64")
+-      CFLAGS=" -march=aarch64"
++      CFLAGS=" -march=armv8-a"
+       ;;
+     *)
+       CFLAGS=" -march=native"
+diff --git a/xlibre-xf86-input-void/PKGBUILD b/xlibre-xf86-input-void/PKGBUILD
+index 9988eba..d9e2898 100644
+--- a/xlibre-xf86-input-void/PKGBUILD
++++ b/xlibre-xf86-input-void/PKGBUILD
+@@ -24,7 +24,7 @@ build() {
+       CFLAGS=" -march=x86-64"
+       ;;
+     "aarch64")
+-      CFLAGS=" -march=aarch64"
++      CFLAGS=" -march=armv8-a"
+       ;;
+     *)
+       CFLAGS=" -march=native"
+diff --git a/xlibre-xf86-input-wacom/PKGBUILD b/xlibre-xf86-input-wacom/PKGBUILD
+index 41e32ff..9012e50 100644
+--- a/xlibre-xf86-input-wacom/PKGBUILD
++++ b/xlibre-xf86-input-wacom/PKGBUILD
+@@ -32,7 +32,7 @@ build() {
+       CFLAGS=" -march=x86-64"
+       ;;
+     "aarch64")
+-      CFLAGS=" -march=aarch64"
++      CFLAGS=" -march=armv8-a"
+       ;;
+     *)
+       CFLAGS=" -march=native"
+diff --git a/xlibre-xf86-video-amdgpu/PKGBUILD b/xlibre-xf86-video-amdgpu/PKGBUILD
+index 0864ef1..735be8f 100644
+--- a/xlibre-xf86-video-amdgpu/PKGBUILD
++++ b/xlibre-xf86-video-amdgpu/PKGBUILD
+@@ -24,7 +24,7 @@ build() {
+       CFLAGS=" -march=x86-64"
+       ;;
+     "aarch64")
+-      CFLAGS=" -march=aarch64"
++      CFLAGS=" -march=armv8-a"
+       ;;
+     *)
+       CFLAGS=" -march=native"
+diff --git a/xlibre-xf86-video-ati/PKGBUILD b/xlibre-xf86-video-ati/PKGBUILD
+index dae7e5a..ad862e6 100644
+--- a/xlibre-xf86-video-ati/PKGBUILD
++++ b/xlibre-xf86-video-ati/PKGBUILD
+@@ -31,7 +31,7 @@ build() {
+       CFLAGS=" -march=x86-64"
+       ;;
+     "aarch64")
+-      CFLAGS=" -march=aarch64"
++      CFLAGS=" -march=armv8-a"
+       ;;
+     *)
+       CFLAGS=" -march=native"
+diff --git a/xlibre-xf86-video-dummy/PKGBUILD b/xlibre-xf86-video-dummy/PKGBUILD
+index a82b5e5..b9646fc 100644
+--- a/xlibre-xf86-video-dummy/PKGBUILD
++++ b/xlibre-xf86-video-dummy/PKGBUILD
+@@ -24,7 +24,7 @@ build() {
+       CFLAGS=" -march=x86-64"
+       ;;
+     "aarch64")
+-      CFLAGS=" -march=aarch64"
++      CFLAGS=" -march=armv8-a"
+       ;;
+     *)
+       CFLAGS=" -march=native"
+diff --git a/xlibre-xf86-video-fbdev/PKGBUILD b/xlibre-xf86-video-fbdev/PKGBUILD
+index 7dec9e9..a82798e 100644
+--- a/xlibre-xf86-video-fbdev/PKGBUILD
++++ b/xlibre-xf86-video-fbdev/PKGBUILD
+@@ -23,7 +23,7 @@ build() {
+       CFLAGS=" -march=x86-64"
+       ;;
+     "aarch64")
+-      CFLAGS=" -march=aarch64"
++      CFLAGS=" -march=armv8-a"
+       ;;
+     *)
+       CFLAGS=" -march=native"
+diff --git a/xlibre-xf86-video-intel/PKGBUILD b/xlibre-xf86-video-intel/PKGBUILD
+index e1e17a8..13ab446 100644
+--- a/xlibre-xf86-video-intel/PKGBUILD
++++ b/xlibre-xf86-video-intel/PKGBUILD
+@@ -41,7 +41,7 @@ build() {
+       CFLAGS=" -march=x86-64"
+       ;;
+     "aarch64")
+-      CFLAGS=" -march=aarch64"
++      CFLAGS=" -march=armv8-a"
+       ;;
+     *)
+       CFLAGS=" -march=native"
+diff --git a/xlibre-xf86-video-nouveau/PKGBUILD b/xlibre-xf86-video-nouveau/PKGBUILD
+index cf699ec..001950f 100644
+--- a/xlibre-xf86-video-nouveau/PKGBUILD
++++ b/xlibre-xf86-video-nouveau/PKGBUILD
+@@ -24,7 +24,7 @@ build() {
+       CFLAGS=" -march=x86-64"
+       ;;
+     "aarch64")
+-      CFLAGS=" -march=aarch64"
++      CFLAGS=" -march=armv8-a"
+       ;;
+     *)
+       CFLAGS=" -march=native"
+diff --git a/xlibre-xf86-video-qxl/PKGBUILD b/xlibre-xf86-video-qxl/PKGBUILD
+index e9b0b5b..4f0a380 100644
+--- a/xlibre-xf86-video-qxl/PKGBUILD
++++ b/xlibre-xf86-video-qxl/PKGBUILD
+@@ -25,7 +25,7 @@ build() {
+       CFLAGS=" -march=x86-64"
+       ;;
+     "aarch64")
+-      CFLAGS=" -march=aarch64"
++      CFLAGS=" -march=armv8-a"
+       ;;
+     *)
+       CFLAGS=" -march=native"
+diff --git a/xlibre-xf86-video-sisusb/PKGBUILD b/xlibre-xf86-video-sisusb/PKGBUILD
+index e438698..9f4c4f0 100644
+--- a/xlibre-xf86-video-sisusb/PKGBUILD
++++ b/xlibre-xf86-video-sisusb/PKGBUILD
+@@ -24,7 +24,7 @@ build() {
+       CFLAGS=" -march=x86-64"
+       ;;
+     "aarch64")
+-      CFLAGS=" -march=aarch64"
++      CFLAGS=" -march=armv8-a"
+       ;;
+     *)
+       CFLAGS=" -march=native"
+diff --git a/xlibre-xf86-video-vesa/PKGBUILD b/xlibre-xf86-video-vesa/PKGBUILD
+index 9d897ba..56f86b6 100644
+--- a/xlibre-xf86-video-vesa/PKGBUILD
++++ b/xlibre-xf86-video-vesa/PKGBUILD
+@@ -24,7 +24,7 @@ build() {
+       CFLAGS=" -march=x86-64"
+       ;;
+     "aarch64")
+-      CFLAGS=" -march=aarch64"
++      CFLAGS=" -march=armv8-a"
+       ;;
+     *)
+       CFLAGS=" -march=native"
+diff --git a/xlibre-xf86-video-vmware/PKGBUILD b/xlibre-xf86-video-vmware/PKGBUILD
+index d955440..048c5b8 100644
+--- a/xlibre-xf86-video-vmware/PKGBUILD
++++ b/xlibre-xf86-video-vmware/PKGBUILD
+@@ -24,7 +24,7 @@ build() {
+       CFLAGS=" -march=x86-64"
+       ;;
+     "aarch64")
+-      CFLAGS=" -march=aarch64"
++      CFLAGS=" -march=armv8-a"
+       ;;
+     *)
+       CFLAGS=" -march=native"
+diff --git a/xlibre-xf86-video-voodoo/PKGBUILD b/xlibre-xf86-video-voodoo/PKGBUILD
+index 2a7d365..c595948 100644
+--- a/xlibre-xf86-video-voodoo/PKGBUILD
++++ b/xlibre-xf86-video-voodoo/PKGBUILD
+@@ -24,7 +24,7 @@ build() {
+       CFLAGS=" -march=x86-64"
+       ;;
+     "aarch64")
+-      CFLAGS=" -march=aarch64"
++      CFLAGS=" -march=armv8-a"
+       ;;
+     *)
+       CFLAGS=" -march=native"
+diff --git a/xlibre-xserver/PKGBUILD b/xlibre-xserver/PKGBUILD
+index 0e34e48..cbd9309 100644
+--- a/xlibre-xserver/PKGBUILD
++++ b/xlibre-xserver/PKGBUILD
+@@ -41,7 +41,7 @@ build() {
+       CFLAGS=" -march=x86-64"
+       ;;
+     "aarch64")
+-      CFLAGS=" -march=aarch64"
++      CFLAGS=" -march=armv8-a"
+       ;;
+     *)
+       CFLAGS=" -march=native"
