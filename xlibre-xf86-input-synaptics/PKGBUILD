@@ -50,7 +50,7 @@ build() {
   CXXFLAGS="${CFLAGS} -Wp,-D_GLIBCXX_ASSERTIONS"
   export CFLAGS="${CFLAGS}"
   export CXXFLAGS="${CXXFLAGS}"
-  export LDLAGS="${LDLAGS}"
+  export LDFLAGS="${LDFLAGS}"
 
   cd ${srcdir}/${_pkgname}-${_pkgname}-${_pkgver}
   ./autogen.sh
