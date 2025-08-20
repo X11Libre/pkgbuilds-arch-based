@@ -156,6 +156,10 @@ package_xlibre-xserver-xephyr() {
   provides=('xorg-server-xephyr')
   conflicts=('xorg-server-xephyr')
 
+  if [[ ! -f "fakeinstall/usr/bin/Xephyr" ]]; then
+    return
+  fi
+
   _install fakeinstall/usr/bin/Xephyr
   _install fakeinstall/usr/share/man/man1/Xephyr.1
 
@@ -171,6 +175,10 @@ package_xlibre-xserver-xvfb() {
            libgl nettle libtirpc libxdmcp sh glibc libxau)
   provides=('xorg-server-xvfb')
   conflicts=('xorg-server-xvfb')
+
+  if [[ ! -f "fakeinstall/usr/bin/Xvfb" ]]; then
+    return
+  fi
 
   _install fakeinstall/usr/bin/Xvfb
   _install fakeinstall/usr/share/man/man1/Xvfb.1
@@ -188,6 +196,10 @@ package_xlibre-xserver-xnest() {
            libtirpc libxdmcp glibc libx11 libxau)
   provides=('xorg-server-xnest')
   conflicts=('xorg-server-xnest')
+
+  if [[ ! -f "fakeinstall/usr/bin/Xnest" ]]; then
+    return
+  fi
 
   _install fakeinstall/usr/bin/Xnest
   _install fakeinstall/usr/share/man/man1/Xnest.1
