@@ -2,21 +2,20 @@
 
 pkgname=xlibre-xf86-input-libinput
 _pkgname=xf86-input-libinput
-pkgver=1.5.0.0
-_pkgver=1.5.1.0
-pkgrel=2
+pkgver=1.5.1.0
+pkgrel=1
 pkgdesc="XLibre fork of the generic input driver for the X.Org server based on libinput"
 arch=('x86_64' 'aarch64')
 license=('MIT')
 url="https://github.com/X11Libre"
 depends=('libinput' 'glibc')
-makedepends=('xorg-server-devel' 'X-ABI-XINPUT_VERSION' 
+makedepends=('xlibre-xserver' 'xlibre-xserver-common' 'xlibre-xserver-devel' 'X-ABI-XINPUT_VERSION=26.0'
   'autoconf' 'automake' 'binutils' 'fakeroot' 'findutils' 
   'gawk' 'gcc' 'gettext' 'gzip' 'libtool' 'm4' 'make' 'patch' 'pkgconf'
   'libxi' 'libx11' 'xorgproto' 'libxfont2')
-conflicts=(${_pkgname} 'xorg-server<1.19.0')
+conflicts=(${_pkgname} 'xorg-server-common<25.0.0.0' 'X-ABI-XINPUT_VERSION<26' 'X-ABI-XINPUT_VERSION>=27')
 provides=(${_pkgname})
-source=("${url}/${_pkgname}/archive/refs/tags/${pkgname}-${_pkgver}.tar.gz")
+source=("${url}/${_pkgname}/archive/refs/tags/${pkgname}-${pkgver}.tar.gz")
 groups=('xlibre-drivers')
 options=('!debug')
 
@@ -51,7 +50,7 @@ build() {
   export CXXFLAGS="${CXXFLAGS}"
   export LDFLAGS="${LDFLAGS}"
 
-  cd ${_pkgname}-${pkgname}-${_pkgver}
+  cd ${_pkgname}-${pkgname}-${pkgver}
   ./autogen.sh
   ./configure --prefix=/usr \
     --disable-static
@@ -60,9 +59,9 @@ build() {
 }
 
 package() {
-  cd ${_pkgname}-${pkgname}-${_pkgver}
+  cd ${_pkgname}-${pkgname}-${pkgver}
   make DESTDIR="${pkgdir}" install
-  install -Dm644 "${srcdir}"/${_pkgname}-${pkgname}-${_pkgver}/COPYING "${pkgdir}"/usr/share/licenses/${pkgname}/LICENSE
+  install -Dm644 "${srcdir}"/${_pkgname}-${pkgname}-${pkgver}/COPYING "${pkgdir}"/usr/share/licenses/${pkgname}/LICENSE
 }
 
 sha256sums=('f1be5a443af78307af18103a6bb614021fe163380b0eb43dec820a2389fbd6c8')
