@@ -3,7 +3,7 @@
 pkgbase=xlibre-xserver
 pkgname=($pkgbase $pkgbase-xephyr $pkgbase-xvfb $pkgbase-xnest $pkgbase-common $pkgbase-devel)
 pkgver=25.0.0.9
-pkgrel=1
+pkgrel=2
 arch=('x86_64' 'aarch64')
 license=('LicenseRef-Adobe-Display-PostScript'
          'BSD-3-Clause' 
@@ -124,7 +124,7 @@ package_xlibre-xserver-common() {
 package_xlibre-xserver() {
   pkgdesc="XLibre fork of X.Org X server"
   depends=(xlibre-xserver-common xlibre-xf86-input-libinput libepoxy libxfont2 pixman libunwind
-           dbus libgl nettle libxdmcp sh glibc libxau libtirpc
+           dbus libgl nettle libxdmcp sh glibc libxau libtirpc libmd
            libpciaccess libdrm libxshmfence libxcvt) # FS#52949
   # see xorg-server-*/hw/xfree86/common/xf86Module.h for ABI versions - we provide major numbers that drivers can depend on
   # and /usr/lib/pkgconfig/xorg-server.pc in xorg-server-devel pkg
