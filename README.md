@@ -71,7 +71,7 @@ Keep a note of all removed xf86 packages and install the corresponding xlibre-xf
    `mv PKGBUILD-1.5.0.1 PKGBUILD`
 - build the package using eg. `makepkg`
 - install the package:\
-   `sudo pacman -U xlibre-xf86-input-libinput-1.5.0.1-1-x86_64.pkg.tar.zst`
+   `sudo pacman -U xlibre-xf86-input-libinput-1.5.1.0-1-x86_64.pkg.tar.zst`
 
 #### 4. Build and install all xlibre packages of which the corresponding xorg one has been removed
 This is done with the same procedure as in the previous steps.\
