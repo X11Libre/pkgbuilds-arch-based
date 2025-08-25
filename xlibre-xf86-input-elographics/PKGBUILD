@@ -2,8 +2,8 @@
 
 pkgname=xlibre-xf86-input-elographics
 _pkgname=xf86-input-elographics
-pkgver=1.4.4.1
-pkgrel=2
+pkgver=1.4.4.2
+pkgrel=1
 pkgdesc="XLibre fork of X.Org Elographics TouchScreen input driver"
 arch=(x86_64 aarch64)
 license=('MIT')
@@ -62,5 +62,5 @@ package() {
   install -Dm644 "${srcdir}"/${_pkgname}-${pkgname}-${pkgver}/COPYING "${pkgdir}"/usr/share/licenses/${pkgname}/LICENSE
 }
 
-sha256sums=('66703dd138eb6d8f92567ec130ed8e73b35ca27f91124e0b046075e2097e089c')
+sha256sums=('704388429ec78b0a38b77c8598e15b6855383f4f1b49c0d7978a29fd18767bf9')
 

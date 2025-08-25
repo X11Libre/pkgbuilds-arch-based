@@ -2,8 +2,8 @@
 
 pkgname=xlibre-xf86-video-fbdev
 _pkgname=xf86-video-fbdev
-pkgver=0.5.1.1
-pkgrel=2
+pkgver=0.5.1.2
+pkgrel=1
 pkgdesc="XLibre fork of framebuffer video driver"
 arch=(x86_64 aarch64)
 license=('X11')
@@ -65,5 +65,5 @@ package() {
   install -Dm644 "${srcdir}"/${_pkgname}-${pkgname}-${pkgver}/COPYING "${pkgdir}"/usr/share/licenses/${pkgname}/LICENSE
 }
 
-sha256sums=('53ac49f9fa892719ea14a48b013a8d6a06d96bd5cd80046d99ec0dcd89dabb5f')
+sha256sums=('05127ef534bef76f10eea3ad583fd364243cd3bb956584ab203ca8fc58fb9793')
 

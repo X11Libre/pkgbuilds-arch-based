@@ -2,9 +2,8 @@
 
 pkgname=xlibre-xf86-input-synaptics
 _pkgname=xf86-input-synaptics
-pkgver=1.10.0.1
-_pkgver=1.10.0
-pkgrel=2
+pkgver=1.10.0.2
+pkgrel=1
 pkgdesc="XLibre fork of X.Org Synaptics driver for notebook touchpads"
 arch=('x86_64' 'aarch64')
 license=('MIT')
@@ -17,7 +16,7 @@ conflicts=(${_pkgname} 'X-ABI-XINPUT_VERSION<26' 'X-ABI-XINPUT_VERSION>=27' 'syn
 replaces=('synaptics')
 provides=(${_pkgname} 'synaptics')
 groups=('xlibre-drivers')
-source=("${url}/${_pkgname}/archive/refs/tags/${_pkgname}-${_pkgver}.tar.gz")
+source=("${url}/${_pkgname}/archive/refs/tags/${pkgname}-${pkgver}.tar.gz")
 options=('!debug')
 install=xf86-input-synaptics.install
 
@@ -52,18 +51,18 @@ build() {
   export CXXFLAGS="${CXXFLAGS}"
   export LDFLAGS="${LDFLAGS}"
 
-  cd ${srcdir}/${_pkgname}-${_pkgname}-${_pkgver}
+  cd ${srcdir}/${_pkgname}-${pkgname}-${pkgver}
   ./autogen.sh
   ./configure --prefix=/usr
   make
 }
 
 package() {
-  cd ${srcdir}/${_pkgname}-${_pkgname}-${_pkgver}
+  cd ${srcdir}/${_pkgname}-${pkgname}-${pkgver}
   
   make DESTDIR="${pkgdir}" install
-  install -Dm644 "${srcdir}"/${_pkgname}-${_pkgname}-${_pkgver}/COPYING "${pkgdir}"/usr/share/licenses/${pkgname}/LICENSE
+  install -Dm644 "${srcdir}"/${_pkgname}-${pkgname}-${pkgver}/COPYING "${pkgdir}"/usr/share/licenses/${pkgname}/LICENSE
 }
 
-sha256sums=('b2dfcffb7aafada79bfd28dccfbb1e25ff93a1500ccb4b71e995b8fbcd511fe8')
+sha256sums=('3e6bc8453f5f957074db28b12e4826ef65ab017e0dd5e34a29d57692ce0c7fe5')
 

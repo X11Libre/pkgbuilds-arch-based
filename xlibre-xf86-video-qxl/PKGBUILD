@@ -2,8 +2,8 @@
 
 pkgname=xlibre-xf86-video-qxl
 _pkgname=xf86-video-qxl
-pkgver=0.1.6.1
-pkgrel=2
+pkgver=0.1.6.2
+pkgrel=1
 pkgdesc='XLibre fork of X.Org X11 qxl video driver'
 arch=('x86_64' 'aarch64')
 url="https://github.com/X11Libre"
@@ -64,4 +64,4 @@ package() {
   install -Dm644 "${srcdir}"/${_pkgname}-${pkgname}-${pkgver}/COPYING "${pkgdir}"/usr/share/licenses/${pkgname}/LICENSE
 }
 
-sha256sums=('a9bd98c9126428b084a8409f01e8486f59bc8d91bb38029453f4b2365303c498')
+sha256sums=('25542b7a7239c9af32da190c93251bcb3e59a47550f26665195baf36d6d51d8e')

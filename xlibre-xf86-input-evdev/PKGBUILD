@@ -2,8 +2,8 @@
 
 pkgname=xlibre-xf86-input-evdev
 _pkgname=xf86-input-evdev
-pkgver=2.11.0.1
-pkgrel=2
+pkgver=2.11.0.2
+pkgrel=1
 pkgdesc="XLibre fork of X.Org evdev input driver"
 arch=(x86_64 aarch64)
 url="https://github.com/X11Libre"
@@ -61,5 +61,5 @@ package() {
   install -Dm644 "${srcdir}"/${_pkgname}-${pkgname}-${pkgver}/COPYING "${pkgdir}"/usr/share/licenses/${pkgname}/LICENSE
 }
 
-sha256sums=('960c13c202dcb029dc15806dd9cff98a773cbc5aa6c20a1c9a53e35ed6d74bef')
+sha256sums=('70a8a65ec56cce7057b8491f68744c6883debe8750948bb290ae7b1c3ec28dfc')
 

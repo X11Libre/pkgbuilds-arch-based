@@ -2,8 +2,8 @@
 
 pkgname=xlibre-xf86-input-vmmouse
 _pkgname=xf86-input-vmmouse
-pkgver=13.2.0.1
-pkgrel=2
+pkgver=13.2.0.2
+pkgrel=1
 pkgdesc="XLibre fork of X.Org VMWare Mouse input driver"
 arch=(x86_64 aarch64)
 license=('custom')
@@ -62,5 +62,5 @@ package() {
   rm -rfv "${pkgdir}"/usr/{lib,share}/hal
 }
 
-sha256sums=('66a6ad55767d0a3169633b542111820370a8e9ac918b8fdd1c55d24320c2144a')
+sha256sums=('84aca84a0cbe3fcbb4d5171b0314fe6e2bf98992ae33fc657dd0a1c43b48feb1')
 

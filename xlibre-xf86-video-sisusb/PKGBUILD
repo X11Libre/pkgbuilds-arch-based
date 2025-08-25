@@ -2,8 +2,8 @@
 
 pkgname=xlibre-xf86-video-sisusb
 _pkgname=xf86-video-sisusb
-pkgver=0.9.7.1
-pkgrel=2
+pkgver=0.9.7.2
+pkgrel=1
 pkgdesc="XLibre fork of X.org SiS USB video driver"
 arch=(x86_64 aarch64)
 url="https://github.com/X11Libre"
@@ -61,5 +61,5 @@ package() {
   install -Dm644 "${srcdir}"/${_pkgname}-${pkgname}-${pkgver}/COPYING "${pkgdir}"/usr/share/licenses/${pkgname}/LICENSE
 }
 
-sha256sums=('0498c91cc5ac437118907b3d6cf64aa5c8c68a70b6a1eb1677494a4c1d96b67e')
+sha256sums=('19835f66f4684c6e08184a00d1bb563effe0bc934fa877842f1953971bcce998')
 

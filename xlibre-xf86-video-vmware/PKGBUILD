@@ -2,7 +2,7 @@
 
 pkgname=xlibre-xf86-video-vmware
 _pkgname=xf86-video-vmware
-pkgver=13.4.0.1
+pkgver=13.4.0.2
 pkgrel=2
 pkgdesc="XLibre fork of X.org vmware video driver"
 arch=(x86_64 aarch64)
@@ -63,5 +63,5 @@ package() {
   install -m644 COPYING "${pkgdir}/usr/share/licenses/${pkgname}/"
 }
 
-sha256sums=('5d861a336e6784f108d69069c34d4b3c02c1adc62df0f0e9d931c0d26e4b22e8')
+sha256sums=('3589e2abbde8e74af50fa07bbafc0624b000a35d3bf481b406d10df14fc6c2ba')
 

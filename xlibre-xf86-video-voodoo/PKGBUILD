@@ -2,8 +2,8 @@
 
 pkgname=xlibre-xf86-video-voodoo
 _pkgname=xf86-video-voodoo
-pkgver=1.2.6.1
-pkgrel=2
+pkgver=1.2.6.2
+pkgrel=1
 pkgdesc="XLibre fork of X.Org 3dfx Voodoo1/Voodoo2 2D video driver"
 arch=(x86_64 aarch64)
 url="https://github.com/X11Libre"
@@ -61,5 +61,5 @@ package() {
   install -Dm644 "${srcdir}"/${_pkgname}-${pkgname}-${pkgver}/COPYING "${pkgdir}"/usr/share/licenses/${pkgname}/LICENSE
 }
 
-sha256sums=('46a90d6f62820cec75757b0d9ca1e99a3479c33af27079f3e64ebd7471a0933e')
+sha256sums=('acdea470f57d33c27a4b1bbb18568a950ac344230e5a9a2ee57ad99f09acc97a')
 

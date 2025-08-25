@@ -2,8 +2,8 @@
 
 pkgname=xlibre-xf86-input-void
 _pkgname=xf86-input-void
-pkgver=1.4.2.1
-pkgrel=2
+pkgver=1.4.2.2
+pkgrel=1
 pkgdesc="XLibre fork of X.Org void input driver"
 arch=(x86_64 aarch64)
 license=('custom')
@@ -61,5 +61,5 @@ package() {
   install -Dm644 "${srcdir}"/${_pkgname}-${pkgname}-${pkgver}/COPYING "${pkgdir}"/usr/share/licenses/${pkgname}/LICENSE
 }
 
-sha256sums=('8ce54cc9e4bcaa4973742081cc4de9615bc9c8fd534f4e31b8efc92dc15adc2e')
+sha256sums=('f551a1d295a798dca3ad6d9daf45c6d19dc7ed60525f71f090d087152c5b3f7b')
 
