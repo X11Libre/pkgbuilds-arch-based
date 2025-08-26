@@ -1,39 +1,34 @@
 # Maintainer: artist for XLibre
 
-pkgname=xlibre-xf86-video-openchrome
-_pkgname=xf86-video-openchrome
-_commit=84093103eb50d29300251479820004dbb827dc18
-pkgver=0.6.0.r811.g8409310
+pkgname=xlibre-xf86-video-savage
+_pkgname=xf86-video-savage
+pkgver=2.4.1.2
 pkgrel=1
-pkgdesc="XLibre fork of X.Org Openchrome drivers"
+pkgdesc="XLibre fork of X.Org savage drivers"
 arch=(x86_64)
 license=('custom')
 url="https://github.com/X11Libre"
-depends=('libdrm' 'libxvmc' 'systemd-libs')
+depends=('glibc')
 makedepends=('xlibre-xserver-devel' 'X-ABI-VIDEODRV_VERSION=28.0'
-             'git' 'systemd' 'libxv')
-conflicts=('xorg-server<21.1.1' 'X-ABI-VIDEODRV_VERSION<28' 'X-ABI-VIDEODRV_VERSION>=29'
-           ${_pkgname} 'xf86-video-via' 'xf86-video-unichrome' 'openchrome')
-replaces=($_pkgname 'openchrome' 'xf86-video-via')
+             'libdrm' 'xorgproto' 'mesa')
+conflicts=('xorg-server<21.1.1' 'X-ABI-VIDEODRV_VERSION<28' 'X-ABI-VIDEODRV_VERSION>=29')
+provides=($_pkgname)
 groups=('xlibre-drivers')
-options=('!emptydirs')
-source=("git+${url}/${_pkgname}.git#commit=$_commit")
-
-pkgver() {
-  cd ${_pkgname}
-  git describe --long | sed 's/^xf86-video-openchrome-//;s/\([^-]*-g\)/r\1/;s/-/./g'
-}
+options=('!emptydirs' '!libtool')
+source=("${url}/${_pkgname}/archive/refs/tags/${pkgname}-${pkgver}.tar.gz")
+#https://github.com/X11Libre/xf86-video-savage/archive/refs/tags/xlibre-xf86-video-savage-2.4.1.2.tar.gz
 
 prepare() {
-  cd ${_pkgname}
-  patch -Np1 -i ../module-dir.patch
-  cp $srcdir/xf86xvpriv.h src/   # is in the xlibre-xserver source but not in the package
+  cd ${_pkgname}-${pkgname}-${pkgver}
   NOCONFIGURE=1 ./autogen.sh
 }
 
 build() {
-  cd ${_pkgname}
+  cd ${_pkgname}-${pkgname}-${pkgver}
 
+  # Since pacman 5.0.2-2, hardened flags are now enabled in makepkg.conf
+  # With them, module fail to load with undefined symbol.
+  # See https://bugs.archlinux.org/task/55102 / https://bugs.archlinux.org/task/54845
   case "$CARCH" in
     "x86_64")
       CFLAGS=" -march=x86-64"
@@ -51,9 +46,6 @@ build() {
   if [[ $CARCH != 'aarch64' ]]; then
     CFLAGS+=" -fcf-protection"
   fi
-  # Since pacman 5.0.2-2, hardened flags are now enabled in makepkg.conf
-  # With them, module fail to load with undefined symbol.
-  # See https://bugs.archlinux.org/task/55102 / https://bugs.archlinux.org/task/54845
   if [[ "$pkgname" == *"xf86-input"* ]]; then
     CFLAGS+=" -fno-plt"
     LDFLAGS+=" -Wl,-z,now"
@@ -72,15 +64,15 @@ build() {
 }
 
 check() {
-  cd ${_pkgname}
+  cd ${_pkgname}-${pkgname}-${pkgver}
   make check
 }
 
 package() {
-  cd ${_pkgname}
+  cd ${_pkgname}-${pkgname}-${pkgver}
   make DESTDIR="${pkgdir}" install
   install -m755 -d "${pkgdir}/usr/share/licenses/${pkgname}"
   install -m644 COPYING "${pkgdir}/usr/share/licenses/${pkgname}/"
 }
 
-sha256sums=('fc55307520359adcb2d40a5f5de56a877ecdbaf5cc7a3a0abf23ead9805c66bd')
+sha256sums=('09c5c51c655ce55644d172c8aa2bd50bb3fbb5439fd0e8d4a51890afecf2a487')
