@@ -1,10 +1,10 @@
 # Contributor: artist for XLibre
 
-pkgname=xlibre-xf86-video-siliconmotion
-_pkgname=xf86-video-siliconmotion
-pkgver=1.7.10.2
+pkgname=xlibre-xf86-video-r128
+_pkgname=xf86-video-r128
+pkgver=6.13.0.2
 pkgrel=1
-pkgdesc="XLibre fork of X.org siliconmotion video driver"
+pkgdesc="XLibre fork of X.org r128 video driver"
 arch=(x86_64 aarch64)
 url="https://github.com/X11Libre"
 license=('custom')
@@ -12,7 +12,7 @@ depends=('glibc')
 makedepends=('xlibre-xserver' 'xlibre-xserver-common' 'xlibre-xserver-devel' 'X-ABI-VIDEODRV_VERSION=28.0')
 groups=('xlibre-drivers')
 source=("${url}/${_pkgname}/archive/refs/tags/${pkgname}-${pkgver}.tar.gz")
-sha256sums=('7cc379d555cd2f2959575742eee305f17727b88732eba0e7d443dc25da27cb4d')
+sha256sums=('1e5e6ad110da7e51cdf9d44391c1a55de29106b7b95420a6e1b9d6234a60e323')
 
 build() {
   cd ${_pkgname}-${pkgname}-${pkgver}
@@ -27,4 +27,3 @@ package() {
   install -m755 -d "${pkgdir}/usr/share/licenses/${pkgname}"
   install -m644 COPYING "${pkgdir}/usr/share/licenses/${pkgname}/"
 }
-
