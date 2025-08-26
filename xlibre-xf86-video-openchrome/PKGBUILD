@@ -4,7 +4,6 @@ pkgname=xlibre-video-openchrome
 _pkgname=xf86-video-openchrome
 _commit=262f3a9298d46cfb8a08f54e0fb39fd5d4c6dc96
 pkgver=0.6.0.r810.g262f3a9
-#pkgver=0.6.0
 pkgrel=1
 pkgdesc="XLibre fork of X.Org Openchrome drivers"
 arch=(x86_64)
@@ -39,9 +38,6 @@ prepare() {
 build() {
   cd ${_pkgname}
 
-  # Since pacman 5.0.2-2, hardened flags are now enabled in makepkg.conf
-  # With them, module fail to load with undefined symbol.
-  # See https://bugs.archlinux.org/task/55102 / https://bugs.archlinux.org/task/54845
   case "$CARCH" in
     "x86_64")
       CFLAGS=" -march=x86-64"
@@ -59,6 +55,9 @@ build() {
   if [[ $CARCH != 'aarch64' ]]; then
     CFLAGS+=" -fcf-protection"
   fi
+  # Since pacman 5.0.2-2, hardened flags are now enabled in makepkg.conf
+  # With them, module fail to load with undefined symbol.
+  # See https://bugs.archlinux.org/task/55102 / https://bugs.archlinux.org/task/54845
   if [[ "$pkgname" == *"xf86-input"* ]]; then
     CFLAGS+=" -fno-plt"
     LDFLAGS+=" -Wl,-z,now"
@@ -68,7 +67,6 @@ build() {
     LDFLAGS+=" -fno-lto"
   fi
   CXXFLAGS="${CFLAGS} -Wp,-D_GLIBCXX_ASSERTIONS"
-#CFLAGS+=" -Wno-implicit-function-declaration -Wno-int-conversion"
   export CFLAGS="${CFLAGS}"
   export CXXFLAGS="${CXXFLAGS}"
   export LDLAGS="${LDLAGS}"
