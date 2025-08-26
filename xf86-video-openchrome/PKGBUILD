@@ -1,0 +1,95 @@
+# Maintainer: artist for XLibre
+
+pkgname=xlibre-video-openchrome
+_pkgname=xf86-video-openchrome
+_commit=262f3a9298d46cfb8a08f54e0fb39fd5d4c6dc96
+pkgver=0.6.0.r810.g262f3a9
+#pkgver=0.6.0
+pkgrel=1
+pkgdesc="XLibre fork of X.Org Openchrome drivers"
+arch=(x86_64)
+license=('custom')
+url="https://www.freedesktop.org/wiki/Openchrome/"
+#depends=('libdrm' 'libxvmc' 'systemd-libs')
+depends=('libdrm' 'libxvmc' 'libudev')
+makedepends=('xlibre-xserver-devel' 'X-ABI-VIDEODRV_VERSION=28.0'
+             'git' 'udev' 'libxv')
+             #'git' 'systemd' 'libxv')
+conflicts=('xorg-server<21.1.1' 'X-ABI-VIDEODRV_VERSION<28' 'X-ABI-VIDEODRV_VERSION>=29'
+           ${_pkgname} 'xf86-video-via' 'xf86-video-unichrome' 'openchrome')
+replaces=('openchrome' 'xf86-video-via')
+groups=('xlibre-drivers')
+options=('!emptydirs')
+source=("git+https://github.com/X11Libre/xf86-video-openchrome.git#commit=$_commit"
+        "https://raw.githubusercontent.com/X11Libre/xserver/refs/heads/master/hw/xfree86/common/xf86xvpriv.h"
+        "module-dir.patch")
+
+pkgver() {
+  cd ${_pkgname}
+  git describe --long | sed 's/^xf86-video-openchrome-//;s/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+prepare() {
+  cd ${_pkgname}
+  patch -Np1 -i ../module-dir.patch
+  cp $srcdir/xf86xvpriv.h src/   # is in the xlibre-xserver source but not in the package
+  NOCONFIGURE=1 ./autogen.sh
+}
+
+build() {
+  cd ${_pkgname}
+
+  # Since pacman 5.0.2-2, hardened flags are now enabled in makepkg.conf
+  # With them, module fail to load with undefined symbol.
+  # See https://bugs.archlinux.org/task/55102 / https://bugs.archlinux.org/task/54845
+  case "$CARCH" in
+    "x86_64")
+      CFLAGS=" -march=x86-64"
+      ;;
+    "aarch64")
+      CFLAGS=" -march=armv8-a"
+      ;;
+    *)
+      CFLAGS=" -march=native"
+      ;;
+  esac
+  CFLAGS+=" -mtune=generic -O2 -pipe -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -Wformat -Werror=format-security"
+  CFLAGS+=" -fstack-clash-protection -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer"
+  LDFLAGS=" -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,lazy -Wl,-z,relro -Wl,-z,pack-relative-relocs"
+  if [[ $CARCH != 'aarch64' ]]; then
+    CFLAGS+=" -fcf-protection"
+  fi
+  if [[ "$pkgname" == *"xf86-input"* ]]; then
+    CFLAGS+=" -fno-plt"
+    LDFLAGS+=" -Wl,-z,now"
+  fi
+  if [[ "$pkgname" == *"xf86-video-intel"* ]]; then
+    CFLAGS+=" -fno-lto"
+    LDFLAGS+=" -fno-lto"
+  fi
+  CXXFLAGS="${CFLAGS} -Wp,-D_GLIBCXX_ASSERTIONS"
+#CFLAGS+=" -Wno-implicit-function-declaration -Wno-int-conversion"
+  export CFLAGS="${CFLAGS}"
+  export CXXFLAGS="${CXXFLAGS}"
+  export LDLAGS="${LDLAGS}"
+
+  ./configure --prefix=/usr
+  make
+}
+
+check() {
+  cd ${_pkgname}
+  make check
+}
+
+package() {
+  cd ${_pkgname}
+  make DESTDIR="${pkgdir}" install
+  install -m755 -d "${pkgdir}/usr/share/licenses/${pkgname}"
+  install -m644 COPYING "${pkgdir}/usr/share/licenses/${pkgname}/"
+}
+
+sha256sums=('4054aff7688ee38e6bcae5ac86db904b871a1a4042db3ed7ac6e7fd46f74ab21'
+            'c400969bc89a30a00e222fc79e290e59be9fb55d3372ef98b4b6c03011a1cd05'
+            '852e9ff01051f56a2d267b101f5ddbdb9bfe0de1c44fca8242ec30035fe8f08f')
+
