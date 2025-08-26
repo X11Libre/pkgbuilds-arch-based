@@ -3,7 +3,7 @@
 pkgbase=xlibre-xserver
 pkgname=($pkgbase $pkgbase-xephyr $pkgbase-xvfb $pkgbase-xnest $pkgbase-common $pkgbase-devel)
 pkgver=25.0.0.9
-pkgrel=2
+pkgrel=3
 arch=('x86_64' 'aarch64')
 license=('LicenseRef-Adobe-Display-PostScript'
          'BSD-3-Clause' 
@@ -198,7 +198,7 @@ package_xlibre-xserver-xnest() {
 
 package_xlibre-xserver-devel() {
   pkgdesc="XLibre fork of X.Org development files for the X.Org X server"
-  depends=('xorgproto' 'mesa' 'libpciaccess' 'pixman'
+  depends=('xlibre-xserver' 'X-ABI-XINPUT_VERSION=26.0' 'xorgproto' 'mesa' 'libpciaccess' 'pixman'
            # not technically required but almost every Xorg pkg needs it to build
            'xorg-util-macros')
   provides=('xorg-server-devel')
