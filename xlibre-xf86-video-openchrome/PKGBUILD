@@ -17,10 +17,12 @@ conflicts=('xorg-server<21.1.1' 'X-ABI-VIDEODRV_VERSION<28' 'X-ABI-VIDEODRV_VERS
 replaces=($_pkgname 'openchrome' 'xf86-video-via')
 groups=('xlibre-drivers')
 options=('!emptydirs')
-source=("git+${url}/${_pkgname}.git#commit=$_commit")
+source=("git+${url}/${_pkgname}.git#commit=$_commit"
+        disable-xvmc-support.patch)
 
 pkgver() {
   cd ${_pkgname}
+  patch -Np1 -i ../disable-xvmc-support.patch
   git describe --long | sed 's/^xf86-video-openchrome-//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
@@ -67,7 +69,7 @@ build() {
   export CXXFLAGS="${CXXFLAGS}"
   export LDLAGS="${LDLAGS}"
 
-  ./configure --prefix=/usr
+  ./configure --prefix=/usr --enable-dri
   make
 }
 
@@ -83,4 +85,5 @@ package() {
   install -m644 COPYING "${pkgdir}/usr/share/licenses/${pkgname}/"
 }
 
-sha256sums=('fc55307520359adcb2d40a5f5de56a877ecdbaf5cc7a3a0abf23ead9805c66bd')
+sha256sums=('fc55307520359adcb2d40a5f5de56a877ecdbaf5cc7a3a0abf23ead9805c66bd'
+            'bfa92fa680b015471fd73534c1ef4f9e514c804f309d0d486de5759001546e4f')

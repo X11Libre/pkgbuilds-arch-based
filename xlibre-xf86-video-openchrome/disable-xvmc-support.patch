@@ -1,0 +1,36 @@
+From 1ee0eeee1d6f0eef2afdbf85d96a7a7f74363154 Mon Sep 17 00:00:00 2001
+From: Kevin Kofler <kevin.kofler@chello.at>
+Date: Tue, 26 Aug 2025 02:54:14 +0200
+Subject: [PATCH] configure.ac: Disable XVMC support, does not compile (#6)
+
+Comment out the lines enabling XVMC for x86 architectures. It currently
+does not compile. It depends on at least one private header
+("xf86xvpriv.h") that is not installed by XLibre. It turns out that
+Fedora has not been compiling this part of the driver since 2021, by
+simply not installing the build dependencies for it.
+
+Fixes #6.
+---
+ configure.ac | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+
+diff --git a/configure.ac b/configure.ac
+index e9b6288..3b73f4d 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -166,10 +166,11 @@ if test "$DRI" = yes; then
+     CFLAGS="$save_CFLAGS"
+ 
+     case "$host_cpu" in
+-        i*86)
+-            XVMC=yes ;;
+-        amd64*|x86_64*)
+-            XVMC=yes ;;
++# FIXME: XVMC support disabled because it does not compile (see issue #6)
++#        i*86)
++#            XVMC=yes ;;
++#        amd64*|x86_64*)
++#            XVMC=yes ;;
+         *)
+             XVMC=no ;;
+     esac
