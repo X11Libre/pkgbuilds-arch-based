@@ -3,7 +3,7 @@
 pkgname=xlibre-xf86-video-ati
 _pkgname=xf86-video-ati
 _pkgname2=xfree-xf86-video-ati
-pkgver=22.0.0.2
+pkgver=22.0.0.3
 pkgrel=1
 pkgdesc="XLibre fork of X.Org ati video driver"
 arch=('x86_64' 'aarch64')
@@ -16,7 +16,7 @@ makedepends=('xlibre-xserver' 'xlibre-xserver-common' 'xlibre-xserver-devel' 'X-
 conflicts=(${_pkgname} 'X-ABI-VIDEODRV_VERSION<28' 'X-ABI-VIDEODRV_VERSION>=29')
 provides=(${_pkgname})
 groups=('xlibre-drivers')
-source=("https://codeload.github.com/X11Libre/${_pkgname}/tar.gz/refs/tags/${pkgname}-${pkgver}")
+source=("${url}/${_pkgname}/archive/refs/tags/${pkgname}-${pkgver}.tar.gz")
 options=('!debug')
 
 build() {
@@ -68,4 +68,4 @@ package() {
   install -Dm644 "${srcdir}"/${_pkgname}-${pkgname}-${pkgver}/COPYING "${pkgdir}"/usr/share/licenses/${pkgname}/LICENSE
 }
 
-sha256sums=('f6b736d462f59aa5c23960d2579fec575215f90c445577c6fab2490447a19579')
+sha256sums=('4d9925766f18d244b8e5d2e3c8737b9cfb8c86eb48ab7a6aa649992ac836b44f')

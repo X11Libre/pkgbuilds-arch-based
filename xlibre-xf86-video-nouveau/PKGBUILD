@@ -2,7 +2,7 @@
 
 pkgname=xlibre-xf86-video-nouveau
 _pkgname=xf86-video-nouveau
-pkgver=1.0.18.2
+pkgver=1.0.18.3
 pkgrel=1
 pkgdesc="XLibre fork of X.Org Open Source 3D acceleration driver for nVidia cards"
 arch=('x86_64' 'aarch64')
@@ -63,5 +63,5 @@ package() {
   install -m644 COPYING "${pkgdir}/usr/share/licenses/${pkgname}/"
 }
 
-sha256sums=('d77755cf251750630723e03a9c6426a26cecf691364d66c2533eb9119d49f069')
+sha256sums=('fdd2d1492ec9b80298cb62fcd78e01b19bb54a5077ab7eb7510726e7bca288c4')
 
