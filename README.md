@@ -32,12 +32,12 @@ The procedure is the same for all packages:
 Conditions related to the order of building xlibre packages
 -----------------------------------------------------------
 
-Note that an xlibre-xserver update from 25.0.0.x to 26.0.0.x is considered a major version updade; an update from 25.0.0.3 to 25.0.0.4 is not as this just a minor version update, also known as hotfix.
+Note that an xlibre-xserver update from 25.0.0.x to 26.0.0.x is considered a major version update; an update from 25.0.0.3 to 25.0.0.4 is not as this just a minor version update, also known as hotfix.
 
 * A major update will increase the Module ABI versions in the Xlibre packages.
-* Before a major updade of xlibre-xserver - and only then - a new version of the xlibre-xf86-input-libinput PKGBUILD file must be downloaded and this package built; this to acommodate for the increased ABI versions while building the xlibre-xserver and xlibre-xf86 packages.
+* Before a major update of xlibre-xserver - and only then - a new version of the xlibre-xf86-input-libinput PKGBUILD file must be downloaded and this package built; this to acommodate for the increased ABI versions while building the xlibre-xserver and xlibre-xf86 packages.
 * The major update is done by building the new version of the xlibre-xserver base package which builds the 6 xlibre-xserver packages.
-* After a major updade of xlibre-xserver, all xlibre-xf86 driver packages need to be rebuilt.
+* After a major update of xlibre-xserver, all xlibre-xf86 driver packages need to be rebuilt.
 * Once an Xlibre package has been built it should be used to replace its xorg counterpart, if installed.
 
 
