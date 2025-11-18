@@ -1,0 +1,67 @@
+# Maintainer: artist for XLibre <artist4xlibre@proton.me>
+
+pkgname=xlibre-video-voodoo
+_pkgname=xf86-video-voodoo
+pkgver=1.2.6.2
+pkgrel=1
+pkgdesc="XLibre fork of X.Org 3dfx Voodoo1/Voodoo2 2D video driver"
+arch=(x86_64 aarch64)
+url="https://github.com/X11Libre"
+license=('MIT')
+depends=('glibc')
+makedepends=('xlibre-xserver' 'xlibre-xserver-common' 'xlibre-xserver-devel' 'X-ABI-VIDEODRV_VERSION=28.0'
+  'xorgproto' 'autoconf' 'automake' 'binutils' 'fakeroot' 'findutils'
+  'gawk' 'gcc' 'gettext' 'gzip' 'libtool' 'm4' 'make' 'patch' 'pkgconf')
+conflicts=("xlibre-${_pkgname}" ${_pkgname} 'X-ABI-VIDEODRV_VERSION<28' 'X-ABI-VIDEODRV_VERSION>=29')
+replaces=("xlibre-${_pkgname}")
+provides=("xlibre-${_pkgname}" ${_pkgname})
+groups=('xlibre-drivers')
+#source=("https://codeload.github.com/X11Libre/${_pkgname}/tar.gz/refs/tags/xlibre-${_pkgname}-${pkgver}")
+source=("${url}/${_pkgname}/archive/refs/tags/xlibre-${_pkgname}-${pkgver}.tar.gz")
+options=('!debug')
+
+build() {
+  case "$CARCH" in
+    "x86_64")
+      CFLAGS=" -march=x86-64"
+      ;;
+    "aarch64")
+      CFLAGS=" -march=armv8-a"
+      ;;
+    *)
+      CFLAGS=" -march=native"
+      ;;
+  esac
+  CFLAGS+=" -mtune=generic -O2 -pipe -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -Wformat -Werror=format-security"
+  CFLAGS+=" -fstack-clash-protection -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer"
+  LDFLAGS=" -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,lazy -Wl,-z,relro -Wl,-z,pack-relative-relocs"
+  if [[ $CARCH != 'aarch64' ]]; then
+    CFLAGS+=" -fcf-protection"
+  fi
+  if [[ "$_pkgname" == *"xf86-input"* ]]; then
+    CFLAGS+=" -fno-plt"
+    LDFLAGS+=" -Wl,-z,now"
+  fi
+  if [[ "$_pkgname" == *"xf86-video-intel"* ]]; then
+    CFLAGS+=" -fno-lto"
+    LDFLAGS+=" -fno-lto"
+  fi
+  CXXFLAGS="${CFLAGS} -Wp,-D_GLIBCXX_ASSERTIONS"
+  export CFLAGS="${CFLAGS}"
+  export CXXFLAGS="${CXXFLAGS}"
+  export LDFLAGS="${LDFLAGS}"
+
+  cd ${_pkgname}-xlibre-${_pkgname}-${pkgver}
+  ./autogen.sh
+  ./configure --prefix=/usr
+  make
+}
+
+package() {
+  cd ${_pkgname}-xlibre-${_pkgname}-${pkgver}
+  make DESTDIR="${pkgdir}" install
+  install -Dm644 "${srcdir}"/${_pkgname}-xlibre-${_pkgname}-${pkgver}/COPYING "${pkgdir}"/usr/share/licenses/${pkgname}/LICENSE
+}
+
+sha256sums=('acdea470f57d33c27a4b1bbb18568a950ac344230e5a9a2ee57ad99f09acc97a')
+

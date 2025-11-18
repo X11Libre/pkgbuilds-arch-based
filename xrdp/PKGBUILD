@@ -1,0 +1,75 @@
+# Maintainer: artist for XLibre <artist4xlibre@proton.me>
+
+pkgname=xrdp
+pkgver=0.10.4.1
+pkgrel=2
+pkgdesc="An open source remote desktop protocol (RDP) server"
+url="https://github.com/neutrinolabs/xrdp"
+arch=(i686 x86_64 armv6h armv7l aarch64)
+license=('Apache-2.0')
+makedepends=('nasm' 'cmocka')
+depends=('libxrandr' 'libfdk-aac' 'ffmpeg' 'imlib2' 'fuse3' 'x264')
+checkdepends=('check')
+optdepends=('tigervnc' 'tightvnc' 'realvnc-vnc-server')
+backup=('etc/xrdp/sesman.ini'
+	'etc/xrdp/xrdp.ini'
+	'etc/xrdp/cert.pem'
+	'etc/xrdp/key.pem'
+	'etc/xrdp/startwm.sh'
+	'etc/xrdp/reconnectwm.sh'
+	'etc/default/xrdp')
+install="${pkgname}.install"
+options=('!debug')
+source=("https://github.com/neutrinolabs/xrdp/releases/download/v${pkgver//_/-}/xrdp-${pkgver//_/-}.tar.gz"
+	"arch-config.diff")
+sha256sums=('52eadf3e86c57be0de0b9d5c184b52a7946a070746d3eb04b5089dd6d42f8f5f'
+            'e0ffce5b1a436990281fe2cc4a3cd9c2840a1dad99740aeaea866ccd9ef56db0')
+
+prepare() {
+  cd "${pkgname}-${pkgver//_/-}"
+  patch -Np2 -b -z .orig <../arch-config.diff
+  ./bootstrap
+}
+
+build() {
+  cd "${pkgname}-${pkgver//_/-}"
+  ./configure --prefix=/usr \
+              --sysconfdir=/etc \
+              --libexecdir=/usr/lib \
+              --localstatedir=/var \
+              --sbindir=/usr/bin \
+              --with-systemdsystemunitdir="" \
+              --enable-jpeg \
+              --enable-tjpeg \
+              --enable-fuse \
+	      --enable-fdkaac \
+	      --enable-opus \
+	      --enable-rfxcodec \
+	      --enable-mp3lame \
+	      --enable-pixman \
+	      --enable-painter \
+	      --enable-vsock \
+	      --enable-ipv6 \
+	      --enable-pam-config=arch \
+	      --enable-rdpsndaudin \
+	      --with-imlib2 \
+	      --enable-x264
+  # Fight unused direct deps
+  sed -i -e "s| -shared | $LDFLAGS\0 |g" -e "s|    if test \"\$export_dynamic\" = yes && test -n \"\$export_dynamic_flag_spec\"; then|      func_append compile_command \" $LDFLAGS\"\n      func_append finalize_command \" $LDFLAGS\"\n\0|" libtool
+  make
+}
+
+check () {
+  cd "${pkgname}-${pkgver//_/-}"
+  make check
+}
+
+package() {
+  cd "${pkgname}-${pkgver//_/-}"
+  sed -i 's^param=Xorg^param=/usr/lib/Xorg^g' sesman/sesman.ini
+  make DESTDIR="$pkgdir" install
+  rm -f "$pkgdir"/etc/xrdp/rsakeys.ini
+  install -Dm644 COPYING "$pkgdir"/usr/share/licenses/$pkgname/COPYING
+  install -Dm644 instfiles/default/xrdp "$pkgdir"/etc/default/xrdp
+}
+

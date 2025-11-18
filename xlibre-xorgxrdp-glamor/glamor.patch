@@ -1,0 +1,22 @@
+--- a/module/rdpCapture.c	2025-11-13 12:00:15.648053199 +0100
++++ b/module/rdpCapture.c	2025-11-13 12:01:17.050307279 +0100
+@@ -1355,7 +1355,7 @@
+     if (copyGC != NULL)
+     {
+         tmpval[0].val = GXcopy;
+-        ChangeGC(NullClient, copyGC, GCFunction, tmpval);
++        ChangeGC(NULL, copyGC, GCFunction, tmpval);
+         ValidateGC(&(hwPixmap->drawable), copyGC);
+         count = REGION_NUM_RECTS(in_reg);
+         pbox = REGION_RECTS(in_reg);
+--- a/module/rdpEgl.c	2025-11-13 11:59:57.835501506 +0100
++++ b/module/rdpEgl.c	2025-11-13 12:01:55.288782593 +0100
+@@ -735,7 +735,7 @@
+     {
+         tmpval[0].val = GXcopy;
+         tmpval[1].val = 0;
+-        ChangeGC(NullClient, rfxGC, GCFunction | GCForeground, tmpval);
++        ChangeGC(NULL, rfxGC, GCFunction | GCForeground, tmpval);
+         ValidateGC(&(screen_pixmap->drawable), rfxGC);
+         pixmap = pScreen->CreatePixmap(pScreen, width, height,
+                                        pScreen->rootDepth,
