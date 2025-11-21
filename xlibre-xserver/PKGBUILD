@@ -2,8 +2,8 @@
 
 pkgbase=xlibre-xserver
 pkgname=($pkgbase $pkgbase-xephyr $pkgbase-xvfb $pkgbase-xnest $pkgbase-common $pkgbase-devel)
-pkgver=25.0.0.15
-pkgrel=3
+pkgver=25.0.0.16
+pkgrel=1
 arch=('x86_64' 'aarch64')
 license=('LicenseRef-Adobe-Display-PostScript'
          'BSD-3-Clause' 
@@ -111,7 +111,7 @@ package_xlibre-xserver-common() {
   pkgdesc="XLibre fork of X.Org Xorg server common files"
   depends=(xkeyboard-config xorg-xkbcomp xorg-setxkbmap)
   provides=('xorg-server-common')
-  conflicts=('xorg-server-common')
+  conflicts=('xorg-server-common' "xorg-server<$pkgver")
 
   _install fakeinstall/usr/lib/xorg/protocol.txt
   _install fakeinstall/usr/share/man/man1/Xserver.1
@@ -214,7 +214,7 @@ package_xlibre-xserver-devel() {
   # make sure there are no files left to install
   find fakeinstall -depth -print0 | xargs -0 rmdir
 }
-sha256sums=('cebbe482328a3dc04b8d74e0ca81f849a7ef1a3dd46275f55f3218fb5d60e5f3'
+sha256sums=('0187e57331daefa75ddc33a4f878ef4c08526b83dc91dbc51a25375d2ff33b8c'
             '27ce50f4432e5549e662db857118761fa9cd74c6900aac52c4db768c956838db'
             '2460adccd3362fefd4cdc5f1c70f332d7b578091fb9167bf88b5f91265bbd776')
 
