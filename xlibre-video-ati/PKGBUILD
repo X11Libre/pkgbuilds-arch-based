@@ -3,7 +3,7 @@
 pkgname=xlibre-video-ati
 _pkgname=xf86-video-ati
 _pkgname2=xfree-xf86-video-ati
-pkgver=22.0.0.3
+pkgver=22.0.0.4
 pkgrel=1
 pkgdesc="XLibre fork of X.Org ati video driver"
 arch=('x86_64' 'aarch64')
@@ -69,4 +69,4 @@ package() {
   install -Dm644 "${srcdir}"/${_pkgname}-xlibre-${_pkgname}-${pkgver}/COPYING "${pkgdir}"/usr/share/licenses/${pkgname}/LICENSE
 }
 
-sha256sums=('4d9925766f18d244b8e5d2e3c8737b9cfb8c86eb48ab7a6aa649992ac836b44f')
+sha256sums=('f23bff5f9a299e4b227c1ed46124679592af25eacb268b858632272d2816f4eb')
