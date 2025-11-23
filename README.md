@@ -97,12 +97,12 @@ Xlibre binary packages repository
 These are available in a separate xlibre repository which can be enabled with the following actions:
 
 * Run commands:\
-  `sudo curl -sS https://raw.githubusercontent.com/X11Libre/binpkg-arch-based/refs/heads/main/0x73580DE2EDDFA6D6.gpg | gpg --import -`\
+  `sudo curl -sS https://x11libre.net/repo/arch_based/x86_64/0x73580DE2EDDFA6D6.gpg | gpg --import -`\
   `sudo pacman-key --lsign-key 73580DE2EDDFA6D6`
 * Add the xlibre repository by adding this section to file /etc/pacman.conf:\
   `[xlibre]`\
-  `Server = https://github.com/X11Libre/binpkg-arch-based/raw/refs/heads/main/`\
-  `# List of available packages: https://github.com/artist4xlibre/packages-arch-based`
+  `Server = https://x11libre.net/repo/arch_based/x86_64/`\
+  `# List of available packages: https://github.com/X11Libre/pkgbuilds-arch-based`
 
 
 Closed source drivers
