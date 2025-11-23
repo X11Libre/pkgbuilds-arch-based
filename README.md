@@ -108,6 +108,8 @@ These are available in a separate xlibre repository which can be enabled with th
 Closed source drivers
 ---------------------
 
+Update: as of xlibre-xserver 25.0.0.16 this is no longer required.
+
 Closed source drivers might not have an updated ABI version to match that of the updated xlibre-xserver. This can be overcome by creating a file named eg. /etc/X11/xorg.conf.d/xlibre.conf containing:
 
 `Section "ServerFlags"`\
