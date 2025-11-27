@@ -2,7 +2,7 @@
 
 pkgname=xlibre-input-mouse
 _pkgname=xf86-input-mouse
-pkgver=1.9.5.3
+pkgver=1.9.5.4
 pkgrel=1
 pkgdesc="XLibre fork of X.Org mouse input driver"
 arch=(x86_64 aarch64)
@@ -63,5 +63,5 @@ package() {
   rm -rfv "${pkgdir}"/usr/{lib,share}/hal
 }
 
-sha256sums=('8975c3f6ff9e5033ea7180a05facc5f9cb366effb8e078dc624bb2b67395baba')
+sha256sums=('9f2108e435d52dc5b373f4fa2a7503a53738ae911a899ce3bf351cd2b912e6e9')
 
