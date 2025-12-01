@@ -101,7 +101,7 @@ These are available in a separate xlibre repository which can be enabled with th
   `sudo pacman-key --lsign-key 73580DE2EDDFA6D6`
 * Add the xlibre repository by adding this section to file /etc/pacman.conf:\
   `[xlibre]`\
-  `Server = https://x11libre.net/repo/arch_based/x86_64/`\
+  `Server = https://x11libre.net/repo/arch_based/$arch/`\
   `# List of available packages: https://github.com/X11Libre/pkgbuilds-arch-based`
 
 
