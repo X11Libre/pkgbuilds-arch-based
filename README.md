@@ -97,11 +97,11 @@ Xlibre binary packages repository
 These are available in a separate xlibre repository which can be enabled with the following actions:
 
 * Run commands:\
-  `sudo curl -sS https://x11libre.net/repo/arch_based/x86_64/0x73580DE2EDDFA6D6.gpg | gpg --import -`\
+  `curl -sS https://x11libre.net/repo/arch_based/x86_64/0x73580DE2EDDFA6D6.gpg | sudo pacman-key --add -`\
   `sudo pacman-key --lsign-key 73580DE2EDDFA6D6`
 * Add the xlibre repository by adding this section to file /etc/pacman.conf:\
   `[xlibre]`\
-  `Server = https://x11libre.net/repo/arch_based/x86_64/`\
+  `Server = https://x11libre.net/repo/arch_based/$arch/`\
   `# List of available packages: https://github.com/X11Libre/pkgbuilds-arch-based`
 
 
