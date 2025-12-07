@@ -2,7 +2,7 @@
 
 pkgname=xlibre-video-intel
 _pkgname=xf86-video-intel
-pkgver=3.0.0.5
+pkgver=3.0.0.6
 pkgrel=1
 arch=(x86_64 aarch64)
 url="https://github.com/X11Libre"
@@ -86,4 +86,4 @@ package() {
   install -Dm644 "${srcdir}"/${_pkgname}-xlibre-${_pkgname}-${pkgver}/COPYING "${pkgdir}"/usr/share/licenses/${pkgname}/LICENSE
 }
 
-sha256sums=('b153bc013e4af0fe67fbe9761636b80d51356df22623f415f111ef8b78d55321')
+sha256sums=('5be44aa05eea12df5999f01ae3ccfc9ed969e89801a3af214cac23581e0721ea')
