@@ -84,5 +84,5 @@ if [ "$PACMAN_CONFIRMATION" = true ]; then
   printf '%s\n' 'Enter Y for each package to replace it with the xlibre package'
   $runasroot pacman -S $xlballpkgs
 else
-  $runasroot pacman -S --noconfirm $xlballpkgs
+  $runasroot pacman -S --noconfirm --ask 4 $xlballpkgs
 fi
