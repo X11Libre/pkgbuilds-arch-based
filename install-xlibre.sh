@@ -51,7 +51,11 @@ fi
 
 printf '\n'
 printf '%s\n' 'Refreshing pacman database caches'
-$runasroot pacman -Syy
+if [ "$PACMAN_CONFIRMATION" = true ]; then
+  $runasroot pacman -Syy
+else
+  $runasroot pacman -Syy --noconfirm
+fi
 
 printf '\n'
 printf '%s\n' 'Checking which XLibre packages to install to replace Xorg'
