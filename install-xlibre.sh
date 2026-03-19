@@ -19,7 +19,7 @@
 
 PACMAN_CONFIRMATION=${PACMAN_CONFIRMATION:-true}
 
-if [ $EUID -ne 0 ]; then
+if [ $(id -u) -ne 0 ]; then
   if command -v doas 1>/dev/null; then
     runasroot=doas
   elif command -v sudo 1>/dev/null; then
